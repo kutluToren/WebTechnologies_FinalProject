@@ -17,11 +17,12 @@ var dbMet: MetricsHandler
     })
 
   describe('#get', function () {
-    it('should get empty array on non existing group', function () {
+    it('should get empty array on non existing group', function (next) {
       dbMet.getOne(11, function (err: Error | null, result?: Metric[]) {
         expect(err).to.be.null
         expect(result).to.not.be.undefined
         expect(result).to.be.empty
+        next();
       })
     })
     it('should get empty array on non existing group',function(){
