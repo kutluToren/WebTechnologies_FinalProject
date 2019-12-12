@@ -34,9 +34,34 @@ app.get('/', (req: any, res: any) => {
   res.end()
 })
 
+
+app.get('/login', 
+  (req, res) => {
+    res.render('login.ejs', {name: req.params.name})
+  }
+)
+
+app.get('/signup', 
+  (req, res) => {
+    res.render('signup.ejs', {name: req.params.name})
+  }
+)
+
+app.get('/account/:key', 
+  (req, res) => {
+    if(req.params.key=="a1b2c3d4e5"){
+      res.render('account.ejs', {name: req.params.name})
+    }
+    
+  }
+)
+
+
+
+/*
 app.get('/hello/:name', 
   (req, res) => {
-    res.render('hello.ejs', {name: req.params.name})
+    res.render('login.ejs', {name: req.params.name})
   }
 )
 
