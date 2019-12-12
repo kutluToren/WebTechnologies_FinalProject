@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <% include partials/head %>
+  </head>
+  <style>
+        body { 
+         background-color: #73a9f4;
+         color: #444;
+       }
+    </style>
+
+  <body class="container">
+        <div class="col-md-10 col-md-offset-3">
+        <h1>Please Enter Your Credentials</h1>
+        
+        <p class="col-md-3 col-md-offset-3">Firstname: <input id="firstName" type="text" name="name" value="Enter Your Name"></p>
+        <p class="col-md-3 col-md-offset-3">Lastname: <input id="lastName" type="text" name="name" value="Enter Your Last Name"></p>
+        <p class="col-md-3 col-md-offset-3">Username: <input id="userName" type="text" name="name" value="Enter Your Username"></p>
+        <p class="col-md-3 col-md-offset-3">Password: <input id="password" type="text" name="name" value="Enter Your Password"></p>
+        <button class="btn btn-success" id="login-check">
+            Register
+        </button>
+
+    </div>
+  </body>
+  
+  <script>
+    /*
+    $('#login-check').click((e) => {
+    e.preventDefault();
+    $.getJSON("/metrics.json", {}, (data) => {
+        const content = data.map(d => {
+        return 'timestamp: '+d.timestamp+', value: '+d.value+'';
+        })
+        $('#metrics').append(content.join("<br>"));
+        $('#metrics').append("<br>");
+    });
+    })
+    */
+  </script>
+</html>
