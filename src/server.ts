@@ -24,37 +24,33 @@ app.set('view engine', 'ejs');
 
 const port: string = process.env.PORT || '8080'
 
-
+/*
 app.get('/', (req: any, res: any) => {
-  res.write("Hello Stranger, \n")
-  res.write("Type /metrics to see all metrics in DB\n")
-  res.write("Type /metrics/id to see all metrics with id in DB\n")
-  res.write("Post to /metrics/id to save a metric for example to do with postman in DB in the form of \n ")
-  res.write("[ { \"timestamp\":\"13846834560000\", \"value\":\"99\" }]")
-  res.end()
+  res.render('home.ejs', {name: req.params.name})
 })
 
 
 app.get('/login', 
-  (req, res) => {
+  (req: any, res: any) => {
     res.render('login.ejs', {name: req.params.name})
   }
 )
 
 app.get('/signup', 
-  (req, res) => {
+  (req: any, res: any) => {
     res.render('signup.ejs', {name: req.params.name})
   }
 )
 
 app.get('/account/:key', 
-  (req, res) => {
+  (req: any, res: any) => {
     if(req.params.key=="a1b2c3d4e5"){
       res.render('account.ejs', {name: req.params.name})
     }
     
   }
 )
+*/
 
 
 
