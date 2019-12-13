@@ -11,23 +11,23 @@
     <div id="form">
         <p>Please login to your account</p>
         <hr />
-        <!-- <form action="/login" method="post"> -->
-        <!-- <form> -->
+        <form action="/signup" method="post">
+            <h2 class="form-signin-heading">Please signup</h2>
             <div class="form-group">
-                <label for="form_username">Username</label>
-                <input id="form_username" type="text" name="username" />
+              <label for="form_username">Username</label>
+              <input id="form_username" type="text" name="username" />
             </div>
             <div class="form-group">
-                <label for="form_password">Password</label>
-                <input id="form_password" type="password" name="password" />
+              <label for="form_email">Email</label>
+              <input id="form_email" type="email" name="email" />
             </div>
             <div class="form-group">
-                <label for="form_email">Email</label>
-                <input id="form_email" type="email" name="email" />
+              <label for="form_password">Password</label>
+              <input id="form_password" type="password" name="password" />
             </div>
-            <!-- <button class="btn btn-primary btn-block" type="submit" value="Submit">Register</button> -->
-            <button class="btn btn-primary btn-block" id="submit_signup">Register</button>
-        <!-- </form> -->
+            <!-- <button class="btn btn-primary btn-block" id="connect" type="submit" value="Submit">Connect</button> -->
+            <button class="btn btn-primary btn-block" id="connect">Connect</button>
+          </form>
         <hr />
         <!-- <button class="btn btn-success btn-block" type="submit" href="/signup" onClick='document.location.href="/signup"'>
       Create an account
@@ -42,35 +42,11 @@
 <script>
 
 
-    $('#submit_signup').click((e) => {
-        let data = {};
-        data.username = $('#form_username').val()
-        data.password = $('#form_password').val()
-        data.email = $('#form_email').val()
-        console.log(data);
-        $.ajax({
-            type: "POST",
-            url: "/login",
-            // The key needs to match your method's input parameter (case-sensitive).
-            data: JSON.stringify(data),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (data) {
-                console.log(data);
-            },
-            failure: function (errMsg) {
-                alert(errMsg);
-            }
-        });
-    })
-
-
-
-
 
 
 </script>
 
 
 <!-- <script src="/js/jquery-3.4.1.min.js"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   

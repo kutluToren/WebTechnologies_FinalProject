@@ -62,6 +62,12 @@ authRouter.get('/logout', (req: any, res: any) => {
 })
 
 app.post('/login', (req: any, res: any, next: any) => {
+ 
+    dbUser.getAll((err: Error | null, result?: User)=>{
+    console.log(result);
+    return res.status(200).send(result);
+  })
+  /*
   dbUser.get(req.body.username, (err: Error | null, result?: User) => {
     if (err) next(err)
     if (result === undefined || !result.validatePassword(req.body.password)) {
@@ -72,12 +78,32 @@ app.post('/login', (req: any, res: any, next: any) => {
       res.redirect('/')
     }
   })
+  */
+})
+
+app.post('/signup', (req: any, res: any, next: any) => {
+  console.log(req.body.username);
+  dbUser.get(req.body.username, function (err: Error | null, result?: User) {
+    if (!err || result !== undefined) {
+    res.status(409).send("user already exists")
+    } else {
+      let user = new User(req.body.username,req.body.email,req.body.password,false);
+      dbUser.save(user, function (err: Error | null) {
+
+  if (err) next(err)
+
+  else res.status(201).send("user persisted")
+        })
+      }
+    })
 })
 
 app.use(authRouter)
 const userRouter = express.Router()
 
+
     userRouter.post('/', (req: any, res: any, next: any) => {
+      console.log(req.body.username);
       dbUser.get(req.body.username, function (err: Error | null, result?: User) {
         if (!err || result !== undefined) {
         res.status(409).send("user already exists")
