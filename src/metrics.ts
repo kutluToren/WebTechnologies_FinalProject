@@ -93,13 +93,14 @@ export class MetricsHandler {
       })
   }
   
-  /*
+  
   public deleteOneWithId(key: string, callback: (error: Error | null) => void) {
-     this.db.del(key)
+     this.db.del(key,(err: Error | null) => {
+      callback(err)
+    })
     
-     callback(null)
   }
-*/
+
   
    
 }
