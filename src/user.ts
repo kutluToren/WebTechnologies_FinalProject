@@ -22,7 +22,7 @@ export class User {
       }
     
       public setPassword(toSet: string): void {
-        var hashedPassword = crypto.createHash('md5').update(toSet).digest('hex');
+        const hashedPassword : string = crypto.createHash('md5').update(toSet).digest('hex');
         this.password=hashedPassword;
         // Hash and set password
       }
@@ -31,9 +31,9 @@ export class User {
         return this.password
       }
     
-      public validatePassword(toValidate: String): boolean {
+      public validatePassword(toValidate: string): boolean {
         // return comparison with hashed password
-        var hashedValidate = crypto.createHash('md5').update(toValidate).digest('hex');
+        const hashedValidate : string = crypto.createHash('md5').update(toValidate).digest('hex');
 
         if(this.password!==hashedValidate){
           return false;
