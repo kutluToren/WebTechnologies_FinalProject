@@ -1,6 +1,8 @@
 import { LevelDB } from "./leveldb"
 import WriteStream from 'level-ws'
 
+const crypto = require('crypto');
+
 export class User {
     public username: string
     public email: string
@@ -20,6 +22,8 @@ export class User {
       }
     
       public setPassword(toSet: string): void {
+        var hashedPassword = crypto.createHash('md5').update(toSet).digest('hex');
+        this.password=hashedPassword;
         // Hash and set password
       }
     
@@ -29,7 +33,14 @@ export class User {
     
       public validatePassword(toValidate: String): boolean {
         // return comparison with hashed password
-        return false;
+        var hashedValidate = crypto.createHash('md5').update(toValidate).digest('hex');
+
+        if(this.password!==hashedValidate){
+          return false;
+        }else{
+          return true;
+        }
+
       }
     }
 

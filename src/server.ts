@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 
 const port: string = process.env.PORT || '8080'
 
-/*
+
 app.get('/', (req: any, res: any) => {
   res.render('home.ejs', {name: req.params.name})
 })
@@ -50,7 +50,7 @@ app.get('/account/:key',
     
   }
 )
-*/
+
 
 
 
